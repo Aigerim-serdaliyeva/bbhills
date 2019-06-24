@@ -1,12 +1,10 @@
 <template lang="pug">
     .home#home 
-        | test       
+        .home__wrap.main-container                        
 
 </template>
 
-<script>
-export default {};
-</script>
+<script></script>
 
 <style lang="scss">
 body {

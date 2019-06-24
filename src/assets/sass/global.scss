@@ -2,3 +2,35 @@ html {
     font-family: $font-stack-helvetica;
     font-size: 16px;
 }
+
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+ul,li {
+    list-style-type: none;
+}
+
+@media #{$desktop} {
+    .mob {
+        display: none !important;
+    }
+    .main-container {    
+        max-width: rem(1200);    
+    }
+}
+
+@media #{$mobile} {
+    .desk {
+        display: none !important;
+    }
+    .main-container {
+        width: 100%;        
+    }
+}

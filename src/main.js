@@ -1,30 +1,32 @@
+require('intersection-observer');
+
+
 import Vue from "vue";
 import App from "./App.vue";
 import store from "./store";
 import router from "./router";
 import upperFirst from "lodash/upperFirst";
 import camelCase from "lodash/camelCase";
+
 // Fontawesome
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-    faInstagram,
-    faFacebookSquare,
-    faVk
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+// import { library } from "@fortawesome/fontawesome-svg-core";
+// import {
+//     faInstagram,
+//     faFacebookSquare,
+//     faVk
+// } from "@fortawesome/free-brands-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 // *** Plugins
-import VueScrollTo from "vue-scrollto";
-Vue.use(VueScrollTo);
 import KsVueScrollmagic from "ks-vue-scrollmagic";
 Vue.use(KsVueScrollmagic);
-import WOW from "wow.js";
-new WOW().init();
+// import WOW from "wow.js";
+// new WOW().init();
 // *** Mixins
 
 // Fontawesome
-library.add(faInstagram, faFacebookSquare, faVk);
-Vue.component("font-awesome-icon", FontAwesomeIcon);
+// library.add(faInstagram, faFacebookSquare, faVk);
+// Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 // *** Base automatic global components
 const requireComponent = require.context(
