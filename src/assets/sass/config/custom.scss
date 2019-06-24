@@ -1,0 +1,86 @@
+// Fonts
+.f-extra-small {
+    font-size: rem(12);
+}
+
+.f-small {
+    font-size: rem(13);
+}
+
+.f-base {
+    font-size: rem(14);
+}
+
+.f-medium {
+    font-size: rem(16);
+}
+
+.f-large {
+    font-size: rem(18);
+}
+
+.f-extra-large {
+    font-size: rem(20);
+}
+
+// Border-radius
+.no-radius {
+    border-radius: 0px;
+}
+
+.small-radius {
+    border-radius: rem(2);
+}
+
+.large-radius {
+    border-radius: rem(4)
+}
+
+.round-radius {
+    border-radius: rem(30)
+}
+
+// Box-shadow
+.shadow-basic {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+}
+
+.shadow-light {
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+// Button
+.input-brand > .el-input-group__append {
+    background-color: $brand;
+    border-color: $brand;
+    &:hover {
+        background-color: $brand-hover;
+        border-color: $brand-hover;        
+    }
+}
+
+.button-brand {
+    background-color: $brand !important;
+    border-color: $brand !important;
+    color: #fff !important;    
+    &:hover {
+        background-color: $brand-hover !important;
+        border-color: $brand-hover !important;        
+    }
+}
+
+
+// Custom
+.mr-10 {
+    margin-right: rem(10);
+}
+
+.el-col-mb-10 {
+    .el-col:not(:last-child) {
+        margin-bottom: rem(10);
+    }
+}
+
+.tac {
+    text-align: center;
+}

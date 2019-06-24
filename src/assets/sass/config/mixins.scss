@@ -1,0 +1,9 @@
+@mixin sized($height, $width) {
+    height: $height;
+    width: $width;
+}
+
+@mixin coverCenter() {
+    background-size: cover;
+    background-position:center;
+}

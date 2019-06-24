@@ -1,23 +1,11 @@
 <template>
-  <div id="app">
-    <global-header />
-    <router-view />
-    <global-footer />
-  </div>
+    <div id="app">
+        <router-view />
+    </div>
 </template>
 
 <script>
-import GlobalHeader from "@/components/Header";
-import GlobalFooter from "@/components/Footer";
-
 export default {
-  components: {
-    GlobalHeader,
-    GlobalFooter
-  }
+    components: {}
 };
 </script>
-
-<style lang="postcss">
-@import "assets/postcss/main.css";
-</style>

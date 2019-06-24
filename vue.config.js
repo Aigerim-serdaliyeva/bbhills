@@ -1,5 +1,12 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === "production" ? "/" : "/"
+    publicPath: process.env.NODE_ENV === "production" ? "/" : "/",
+    css: {
+        loaderOptions: {
+            sass: {
+                data: `@import "@/assets/sass/main.scss";`
+            }
+        }
+    }
 };
 
 // const imagemin = require('imagemin');
