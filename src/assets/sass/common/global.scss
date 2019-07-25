@@ -9,6 +9,10 @@ a {
     text-decoration: none;
 }
 
+img {
+    max-width: 100%;
+}
+
 button {
     cursor: pointer;
 }
@@ -17,12 +21,17 @@ ul,li {
     list-style-type: none;
 }
 
+.main-container {
+    max-width: 100%;
+}
+
 @media #{$desktop} {
     .mob {
         display: none !important;
     }
-    .main-container {    
-        max-width: rem(1200);    
+    .main-container {            
+        width: rem(1200);    
+        margin: auto;
     }
 }
 
@@ -30,7 +39,8 @@ ul,li {
     .desk {
         display: none !important;
     }
-    .main-container {
-        width: 100%;        
+    .main-container {        
+        padding: 0 rem(20);
+        text-align: center;
     }
 }

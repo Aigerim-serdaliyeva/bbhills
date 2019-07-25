@@ -13,44 +13,24 @@
 
 
 // Fonts
-.rob-900 {
-    font-family: Roboto;
+.phen-400 {
+    font-family: Phenomena;
+    font-weight: 400;
+}
+
+.phen-700 {
+    font-family: Phenomena;
+    font-weight: 700;
+}
+
+.phen-300 {
+    font-family: Phenomena;
+    font-weight: 300;
+}
+
+.phen-900 {
+    font-family: Phenomena;
     font-weight: 900;
-}
-
-.rob-400 {
-    font-family: Roboto;
-    font-weight: 400;
-}
-
-.rob-700 {
-    font-family: Roboto;
-    font-weight: 700;
-}
-
-.opsans-700 {
-    font-family: OpenSans;
-    font-weight: 700;
-}
-
-.opsans-400 {
-    font-family: OpenSans;
-    font-weight: 400;
-}
-
-.opsans-600 {
-    font-family: OpenSans;
-    font-weight: 600;
-}
-
-.bebas-400 {
-    font-family: BebasNeue;
-    font-weight: 400;
-}
-
-.bebas-700 {
-    font-family: BebasNeue;
-    font-weight: 700;
 }
 
 // Custom
@@ -132,19 +112,11 @@
     }
 }
 
-.thank-you {
-
-}
-
 .stop-scrolling {
     height: 100%;
     overflow: hidden;
 }
 
-.col-yel {
-    color: $yellow;
-}
-
-.bg-yel {
-    background: $yellow;
+.d-flex {
+    display: flex;
 }

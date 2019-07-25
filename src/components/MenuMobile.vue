@@ -2,11 +2,34 @@
 
 mixin mobileMenuContentWrap
     .mobile-menu__content-wrap
-        .mobile-menu__content-toggle(@click="MENU_TOGGLE") Click        
+        .mobile-menu__content-menu
+            .mobile-menu__content-toggle(@click="MENU_TOGGLE") 
+                img(src="@/assets/images/mobile/menu-close.svg")        
+            .mobile-menu__content-logo
+                img(src="@/assets/images/global/header-logo.svg")
+            .mobile-menu__content-phone
+                img(src="@/assets/images/mobile/menu-phone.svg")
+    
+    .mobile-menu__content-main.phen-400
+        .mobile-menu__content-link(
+            v-for="item in menu"
+            :key="item.id"
+            :class="{ 'mobile-menu__content-active': currentRoute === item.attr.to }"
+        )
+            span
+            router-link(v-bind="item.attr" @click.native="MENU_TOGGLE") {{item.name}}
+            span
+
 
 .mobile-menu
-    .mobile-menu__wrap
-        .mobile-menu__toggle(@click="MENU_TOGGLE") Click
+    .mobile-menu__wrap.main-container
+        .mobile-menu__toggle(@click="MENU_TOGGLE")
+            img(src="@/assets/images/mobile/menu-bar.svg")
+        .mobile-menu__logo
+            img(src="@/assets/images/mobile/menu-logo.svg")
+        .mobile-menu__phone
+            img(src="@/assets/images/mobile/menu-phone.svg")
+         
     .mobile-menu__content(
         :class="{ 'mobile-menu__hidden': !menu_state }"        
     )
@@ -19,8 +42,16 @@ import { createNamespacedHelpers } from "vuex";
 const { mapState, mapMutations } = createNamespacedHelpers("menuMobile");
 
 export default {
+    data() {
+        return {
+            menu: require("@/assets/json/menu")
+        };
+    },
     computed: {
-        ...mapState(["menu_state"])
+        ...mapState(["menu_state"]),
+        currentRoute() {
+            return this.$route.path;
+        }
     },
     watch: {
         menu_state(isOpen) {
@@ -39,10 +70,11 @@ export default {
 .mobile-menu {
     width: 100%;
     position: relative;
+    background: $maincol;
     &__wrap {
-        padding: rem(10);
         @include flex(space-between, center);
-        border-bottom: 1px solid #000;
+        color: #fff;
+        font-size: rem(22);
     }
     &__content {
         position: fixed;
@@ -51,13 +83,40 @@ export default {
         transform: translateY(0);
         transition: 0.3s ease-in-out;
         @include sized(100vh, 100%);
-        background: blue;
+        background: $maincol;
     }
-    &__content-toggle {
-        padding: rem(10);
-        position: absolute;
-        top: 0;
-        left: 0;
+    &__content-wrap {
+        padding: rem(27) rem(20) rem(50);
+    }
+    &__content-link {
+        @include flex(center, center);
+        & + .mobile-menu__content-link {
+            margin-top: rem(20);
+        }
+        span {
+            height: 2px;
+            flex: 1;
+            background: #fff;
+        }
+        a {
+            display: block;
+        }
+        span {
+            display: none;
+        }
+        a {
+            color: #fff;
+            font-size: rem(24);
+            padding: 0 rem(10);
+        }
+    }
+    &__content-menu {
+        @include flex(space-between, center);
+    }
+    &__content-active {
+        span {
+            display: block;
+        }
     }
     &__hidden {
         visibility: hidden;
@@ -67,6 +126,10 @@ export default {
         position: fixed;
         top: 0;
         left: 0;
+    }
+    &__logo {
+        position: relative;
+        top: rem(3);
     }
 }
 </style>

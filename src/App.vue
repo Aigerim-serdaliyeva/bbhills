@@ -17,3 +17,7 @@ export default {
     }
 };
 </script>
+
+<style lang="scss">
+@import "@/assets/sass/common.scss";
+</style>

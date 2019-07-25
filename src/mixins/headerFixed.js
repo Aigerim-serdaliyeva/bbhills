@@ -1,9 +1,9 @@
 import { mapMutations } from "vuex";
 
-const headerFixed = {    
+const headerFixed = {
     mounted() {
         this.$nextTick(this.sticky);
-      },
+    },
     destroyed() {
         this.$ksvuescr.$emit("destroy");
     },
@@ -14,17 +14,20 @@ const headerFixed = {
             const scene = new this.$scrollmagic.Scene({
                 triggerElement: "#header__trigger"
             }).on("progress", () => {
-                vm.MENU_TOGGLE()
+                vm.MENU_TOGGLE();
             });
 
-            this.$ksvuescr.$emit("addScene", "stickedNav", scene);        
+            this.$ksvuescr.$emit("addScene", "stickedNav", scene);
         },
-        ...mapMutations("menuDesktop", ["MENU_VISIBLE", "MENU_HIDDEN", "MENU_TOGGLE"])
+        ...mapMutations("menuDesktop", [
+            "MENU_VISIBLE",
+            "MENU_HIDDEN",
+            "MENU_TOGGLE"
+        ])
     }
 };
 
 export default headerFixed;
-
 
 // Вариант с использованием intersection observer
 

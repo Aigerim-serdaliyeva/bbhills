@@ -10,7 +10,22 @@ const router = new Router({
         {
             path: "/",
             name: "home",
-            component: () => import("./views/Home.vue")
+            component: () => import("./views/TheHome.vue")
+        },
+        {
+            path: "/galery",
+            name: "galery",
+            component: () => import("./views/TheGalery.vue")
+        },
+        {
+            path: "/layout",
+            name: "layout",
+            component: () => import("./views/TheLayout")
+        },
+        {
+            path: "/stages",
+            name: "stages",
+            component: () => import("./views/TheStages")
         }
     ]
 });
