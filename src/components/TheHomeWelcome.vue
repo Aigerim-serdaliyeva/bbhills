@@ -1,22 +1,30 @@
 <template lang="pug">
     
-.home-welcome
+.home-welcome.by-white
     .home-welcome__wrap.main-container
         .home-welcome__title
             img(src="@/assets/images/desktop/home-welcome-title.svg")
             h2.phen-400 Стиль жизни успешных людей
             img(src="@/assets/images/desktop/home-welcome-grape.svg")
-        .d-flex
-            .home-welcome__call
-                .home-welcome__call__wrap
-                    h2.phen-700 Оставьте заявку и я свяжусь с вами, в удобное для вас время!
-                    input(type="text" )
+        .home-welcome__call
+            call
 
 </template>
 
+<script>
+import call from "@/components/Call.vue";
+
+export default {
+    components: {
+        call
+    }
+};
+</script>
+
 <style lang="scss">
 .home-welcome {
-    background: url("~@/assets/images/desktop/home-welcome-bg.png");
+    background: url("~@/assets/images/desktop/home-welcome-bg.jpg");
+    @include coverCenter;
     padding: rem(140) 0 rem(56);
     &__wrap {
         color: #fff;
@@ -30,19 +38,8 @@
         text-align: center;
     }
     &__call {
-        margin-left: auto;
-        display: inline-block;
-        padding: rem(9.8);
-        width: rem(289);
-        background: $maincol;
-        text-align: center;
-        &__wrap {
-            padding: rem(35) rem(20);            
-        }
-        input {
-            font-family: Phenomena;
-            font-weight: 400;
-        }
+        display: flex;
+        justify-content: flex-end;
     }
 }
 </style>

@@ -88,10 +88,6 @@
     font-size: rem(18);
 }
 
-.no-m {
-
-}
-
 .col-white {
     color: #fff;
 }
@@ -119,4 +115,30 @@
 
 .d-flex {
     display: flex;
+}
+
+.by-white {
+    border-top: 4px solid #fff;
+    border-bottom: 4px solid #fff;
+}
+
+.bt-white {
+    border-top: 4px solid #fff;
+}
+
+.bb-white {
+    border-bottom: 4px solid #fff;
+}
+
+.line-white {
+    width: 4px;
+    background: #fff;    
+}
+
+.line-white-def {
+    height: rem(126);
+}
+
+.d-block {
+    display: block;
 }

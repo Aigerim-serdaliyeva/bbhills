@@ -9,12 +9,19 @@ a {
     text-decoration: none;
 }
 
+body {
+    background: $maincol;
+    color: #fff;
+}
+
 img {
     max-width: 100%;
 }
 
 button {
     cursor: pointer;
+    background: none;
+    border: none;    
 }
 
 ul,li {
@@ -22,8 +29,9 @@ ul,li {
 }
 
 .main-container {
-    max-width: 100%;
+    max-width: 100%;    
 }
+
 
 @media #{$desktop} {
     .mob {

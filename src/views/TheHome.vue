@@ -4,7 +4,13 @@
         about 
         townhouse
         advantages
-        presentation
+        presentation(
+            v-for="item in presentation"
+            :key="item.id"
+            :title="item.title"
+            :list="item.list"
+            :class="item.class"
+        )
         order
 
 </template>
@@ -18,6 +24,11 @@ import presentation from "@/components/HomePresentation.vue";
 import order from "@/components/TheHomeOrder.vue";
 
 export default {
+    data() {
+        return {
+            presentation: require("@/assets/json/presentation")
+        };
+    },
     components: {
         welcome,
         about,

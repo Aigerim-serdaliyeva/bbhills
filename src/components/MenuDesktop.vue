@@ -24,6 +24,7 @@ export default {
 .menu-desktop {
     transition: 0.3s ease-in-out;
     background: $maincol;
+    z-index: 10;
     &__logo {
         align-self: center;
     }

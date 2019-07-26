@@ -15,3 +15,7 @@
     flex-direction: $direction;
 }
 
+@mixin fonted($font, $lineHeight) {
+    font-size: $font;
+    line-height: $lineHeight
+}
