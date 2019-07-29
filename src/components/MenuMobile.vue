@@ -75,6 +75,7 @@ export default {
     width: 100%;
     position: relative;
     background: $maincol;
+    z-index: 100;
     &__wrap {
         @include flex(space-between, center);
         color: #fff;

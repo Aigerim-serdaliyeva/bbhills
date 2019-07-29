@@ -6,25 +6,19 @@
             h2 Таунхаусы 
                 span.phen-700 BlackBerry Hills
             h3 Свободная планировка является одним из несомненных преимуществ наших таунхаусов
-        controller
-        .stages__view
+        stages-controller
+        stages-view        
 
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import controller from "@/components/TheStagesController";
+import stagesController from "@/components/TheStagesController";
+import stagesView from "@/components/TheStagesView";
 
 export default {
     components: {
-        controller
-    },
-    computed: {
-        ...mapGetters({
-            activeButton: "stages/activeButton",
-            activeMeter: "stages/activeMeter"
-        })
-    }
+        stagesController, stagesView
+    }, 
 };
 </script>
 

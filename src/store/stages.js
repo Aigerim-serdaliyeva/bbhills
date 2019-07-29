@@ -1,22 +1,32 @@
 const SET_BUTTON = "SET_BUTTON";
 const SET_METER = "SET_METER";
+const SET_TEXT = "SET_TEXT";
+import stages from "@/assets/json/stages"
 
 export default {
     namespaced: true,
     state: {
         activeMeter: 0,
-        activeButton: 0
+        activeButton: 0,
+        text: stages[0].quantity[0].text,        
     },
     getters: {
         activeMeter: state => state.activeMeter,
-        activeButton: state => state.activeButton
+        activeButton: state => state.activeButton,
+        text: state => state.text
     },
     mutations: {
         [SET_BUTTON](state, payload) {
-            state.activeButton = payload;
+            state.activeButton = payload.index;
+            state.text = payload.text
         },
         [SET_METER](state, payload) {
             state.activeMeter = payload;
+            state.activeButton = 0;
+            state.text = stages[payload].quantity[0].text
+        },
+        [SET_TEXT] (state, payload) {
+            state.text = payload
         }
     },
     actions: {
@@ -25,6 +35,9 @@ export default {
         },
         setButton({ commit }, payload) {
             commit(SET_BUTTON, payload);
+        },
+        setText({commit}, payload) {
+            commit(SET_TEXT, payload)
         }
     }
 };
