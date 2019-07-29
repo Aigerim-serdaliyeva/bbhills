@@ -13,8 +13,8 @@
     ]
 
 .home-townhouse            
-    .home-townhouse__wrap.main-container
-        .home-townhouse__content
+    .home-townhouse__wrap.desk-container
+        .home-townhouse__content.desk
             each item in info
                 .home-townhouse__text
                     article
@@ -22,7 +22,8 @@
                         h2.phen-700 !{item.title}
                         p.phen-300 !{item.text}
         .home-townhouse__layout
-            img(src="@/assets/images/desktop/home-townhouse-layout.png", alt="")
+            img.desk(src="@/assets/images/desktop/home-townhouse-layout.png", alt="")
+            img.mob(src="@/assets/images/mobile/home-townhouse-layout.png", alt="")
 
 </template>
 

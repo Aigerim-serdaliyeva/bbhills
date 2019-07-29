@@ -1,22 +1,23 @@
 <template lang="pug">
 
 .home-presentation
-    .home-presentation__main
+    .home-presentation__main.by-mob-white
         .home-presentation__hidden
-        .home-presentation__wrap.main-container
+        .home-presentation__wrap.desk-container
             .line-white.line-white-def
             .home-presentation__img
-                img(src='@/assets/images/desktop/home-presentation-bg-1.jpg', alt="")        
+                img.desk(src='@/assets/images/desktop/home-presentation-bg-1.jpg', alt="")        
+                img.mob(src='@/assets/images/mobile/home-presentation-bg-1.jpg', alt="")        
         
         .home-presentation__hidden
         
     .home-presentation__main
         .home-presentation__wrap.main-container
             .home-presentation__description.phen-400
-                h2(v-html="title")
+                h2.desk(v-html="title")
                 ul
                     li(v-for="item in list") {{item.text}}
-                .home-presentation__gift
+                .home-presentation__gift.desk
                     img(src='@/assets/images/desktop/home-presentation-gift.png')
                     h3.phen-700 Терраса в подарок
 
@@ -103,6 +104,21 @@ export default {
             }
             ul {
                 width: rem(590);
+            }
+        }
+    }
+}
+
+@media #{$mobile} {
+    .home-presentation {
+        .line-white {
+            display: none;
+        }
+        &__description {
+            padding: rem(30) 0;
+            text-align: left;
+            li {
+                font-size: rem(22);
             }
         }
     }

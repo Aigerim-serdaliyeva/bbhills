@@ -2,7 +2,7 @@
     
 .menu-desktop
     .menu-desktop__wrap.main-container
-        .menu-desktop__logo
+        .menu-desktop__logo(@click="goToIndex")
             img(src="@/assets/images/global/header-logo.svg")
         ul.menu-desktop__nav.phen-400
             li(v-for="item in menu" :key="item.id")
@@ -16,6 +16,11 @@ export default {
         return {
             menu: require("@/assets/json/menu")
         };
+    },
+    methods: {
+        goToIndex() {
+            this.$router.push("/");
+        }
     }
 };
 </script>
@@ -27,6 +32,7 @@ export default {
     z-index: 10;
     &__logo {
         align-self: center;
+        cursor: pointer;
     }
     &__wrap {
         @include flex(space-between, flex-start);

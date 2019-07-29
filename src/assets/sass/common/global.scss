@@ -28,27 +28,28 @@ ul,li {
     list-style-type: none;
 }
 
-.main-container {
+.main-container, .mob-container, .desk-container {
     max-width: 100%;    
 }
-
 
 @media #{$desktop} {
     .mob {
         display: none !important;
     }
-    .main-container {            
-        width: rem(1200);    
-        margin: auto;
-    }
+    .main-container, .desk-container {            
+        width: rem(1200); margin: auto;            
+    }       
 }
 
 @media #{$mobile} {
+    html {
+        font-size: 13px;
+    }
     .desk {
         display: none !important;
     }
-    .main-container {        
+    .main-container, .mob-container {        
         padding: 0 rem(20);
         text-align: center;
-    }
+    }             
 }

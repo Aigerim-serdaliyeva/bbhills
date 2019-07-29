@@ -5,7 +5,7 @@ mixin mobileMenuContentWrap
         .mobile-menu__content-menu
             .mobile-menu__content-toggle(@click="MENU_TOGGLE") 
                 img(src="@/assets/images/mobile/menu-close.svg")        
-            .mobile-menu__content-logo
+            .mobile-menu__content-logo(@click="goToIndex")
                 img(src="@/assets/images/global/header-logo.svg")
             .mobile-menu__content-phone
                 img(src="@/assets/images/mobile/menu-phone.svg")
@@ -13,7 +13,7 @@ mixin mobileMenuContentWrap
     .mobile-menu__content-main.phen-400
         .mobile-menu__content-link(
             v-for="item in menu"
-            :key="item.id"
+            :key="item.id"            
             :class="{ 'mobile-menu__content-active': currentRoute === item.attr.to }"
         )
             span
@@ -25,7 +25,7 @@ mixin mobileMenuContentWrap
     .mobile-menu__wrap.main-container
         .mobile-menu__toggle(@click="MENU_TOGGLE")
             img(src="@/assets/images/mobile/menu-bar.svg")
-        .mobile-menu__logo
+        .mobile-menu__logo(@click="goToIndex")
             img(src="@/assets/images/mobile/menu-logo.svg")
         .mobile-menu__phone
             img(src="@/assets/images/mobile/menu-phone.svg")
@@ -61,7 +61,11 @@ export default {
         }
     },
     methods: {
-        ...mapMutations(["MENU_TOGGLE"])
+        ...mapMutations(["MENU_TOGGLE"]),
+        goToIndex() {
+            this.$router.push("/");
+            this.MENU_TOGGLE();
+        }
     }
 };
 </script>
@@ -81,7 +85,7 @@ export default {
         top: 0;
         left: 0;
         transform: translateY(0);
-        transition: 0.3s ease-in-out;
+        transition: 0.2s ease-in-out;
         @include sized(100vh, 100%);
         background: $maincol;
     }
@@ -106,7 +110,7 @@ export default {
         }
         a {
             color: #fff;
-            font-size: rem(24);
+            font-size: rem(28);
             padding: 0 rem(10);
         }
     }
@@ -130,6 +134,11 @@ export default {
     &__logo {
         position: relative;
         top: rem(3);
+        img {
+            max-width: 80%;
+            display: block;
+            margin: auto;
+        }
     }
 }
 </style>

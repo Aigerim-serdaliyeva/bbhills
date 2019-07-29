@@ -9,10 +9,10 @@ import camelCase from "lodash/camelCase";
 
 // Fontawesome
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faBars);
+library.add(faInstagram, faFacebook);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 // *** Plugins

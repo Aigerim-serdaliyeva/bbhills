@@ -6,7 +6,11 @@ export default {
         menu_state: false
     },
     mutations: {
-        [MENU_TOGGLE](state) {
+        [MENU_TOGGLE](state, payload) {
+            if (!payload) {
+                state.menu_state = payload;
+                return;
+            }
             state.menu_state = !state.menu_state;
         }
     }

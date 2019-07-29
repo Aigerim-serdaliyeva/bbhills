@@ -8,7 +8,8 @@
 
 .home-about
     .line-white.line-white-def
-    .home-about__main.by-white
+    .home-about__garden.by-white.mob.mob-def-img
+    .home-about__main.by-white.by-0-mob.mob-container
         .home-about__part.phen-400 
             article
                 h2= info.title
@@ -25,17 +26,7 @@ export default {
 
 <style lang="scss">
 .home-about {
-    .line-white {
-        margin: auto;
-    }
     &__main {
-        display: flex;
-        background: url("~@/assets/images/desktop/home-about-bg.jpg");
-        @include coverCenter;
-        article {
-            width: rem(473);
-            padding-right: rem(63);
-        }
         h2 {
             font-size: rem(36);
             margin-bottom: rem(40);
@@ -44,12 +35,46 @@ export default {
             @include fonted(rem(25), rem(41));
         }
     }
-    &__part {
-        padding: rem(50) 0;
-        flex: 1;
-        &:first-child {
-            @include flex(flex-end, center);
-            text-align: center;
+}
+
+@media #{$desktop} {
+    .home-about {
+        .line-white {
+            margin: auto;
+        }
+        &__main {
+            display: flex;
+            background: url("~@/assets/images/desktop/home-about-bg.jpg");
+            @include coverCenter;
+            article {
+                width: rem(473);
+                padding-right: rem(63);
+            }
+        }
+        &__part {
+            padding: rem(50) 0;
+            flex: 1;
+            &:first-child {
+                @include flex(flex-end, center);
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media #{$mobile} {
+    .home-about {
+        .line-white {
+            margin-left: auto;
+            position: relative;
+            right: rem(53);
+        }
+        &__main {
+            padding-top: rem(50);
+            padding-bottom: rem(20);
+        }
+        &__garden {
+            background: url("~@/assets/images/mobile/home-about-img.jpg");
         }
     }
 }

@@ -1,17 +1,3 @@
-// Bg and col
-
-// .brownbg {
-//     background: $brownbg;
-// }
-
-// .maincol {
-//     color: $maincol;
-//     a {
-//         color: $maincol;
-//     }
-// }
-
-
 // Fonts
 .phen-400 {
     font-family: Phenomena;
@@ -120,25 +106,59 @@
 .by-white {
     border-top: 4px solid #fff;
     border-bottom: 4px solid #fff;
+    @media #{$mobile} {
+        border-top: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+    }
 }
 
 .bt-white {
     border-top: 4px solid #fff;
+    @media #{$mobile} {
+        border-top: 2px solid #fff;        
+    }
 }
 
 .bb-white {
     border-bottom: 4px solid #fff;
+    @media #{$mobile} {
+        border-bottom: 2px solid #fff;        
+    }
+}
+
+.by-0-mob {
+    @media #{$mobile} {
+        border: none;
+    }
+}
+
+.by-mob-white {
+    @media #{$mobile} {
+        border-top: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+    }
 }
 
 .line-white {
     width: 4px;
-    background: #fff;    
+    background: #fff;
+    @media #{$mobile} {
+        width: 2px;
+    }    
 }
 
 .line-white-def {
     height: rem(126);
+    @media #{$mobile} {
+        height: rem(30);
+    }    
 }
 
 .d-block {
     display: block;
+}
+
+.mob-def-img {
+    @include sized(210px, 100%);
+    @include coverCenter;
 }
