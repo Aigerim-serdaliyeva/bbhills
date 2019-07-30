@@ -1,6 +1,6 @@
 <template lang="pug">
     
-.home-welcome.by-white
+.home-welcome.bb-white
     .home-welcome__wrap.main-container
         .home-welcome__title.desk
             img(src="@/assets/images/desktop/home-welcome-title.svg")

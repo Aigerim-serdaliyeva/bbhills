@@ -10,9 +10,13 @@ import camelCase from "lodash/camelCase";
 // Fontawesome
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-library.add(faInstagram, faFacebook);
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+library.add(faInstagram, faFacebook, faChevronLeft);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 // *** Plugins

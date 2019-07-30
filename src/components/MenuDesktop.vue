@@ -1,6 +1,6 @@
 <template lang="pug">
     
-.menu-desktop
+.menu-desktop.bb-white
     .menu-desktop__wrap.main-container
         .menu-desktop__logo(@click="goToIndex")
             img(src="@/assets/images/global/header-logo.svg")

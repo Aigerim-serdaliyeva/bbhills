@@ -1,21 +1,21 @@
 <template lang="pug">    
 
-.stages__controller
+.layout__controller
     article(
-        v-for="(item, index) in stages"
+        v-for="(item, index) in layout"
         :key="item.id"
     )
-        .stages__meter(
+        .layout__meter(
             @click="setMeter(index)"
-            :class="{'stages__active': activeMeter == index} "
+            :class="{'layout__active': activeMeter == index} "
         )
             | {{item.meter}} кв.м.
-        .stages__choose(v-if="activeMeter == index")
-            .stages__button(
+        .layout__choose(v-if="activeMeter == index")
+            .layout__button(
                 v-for="(childItem, childIndex) in item.quantity"
-                :key="`stages-button-${childIndex}`"
+                :key="`layout-button-${childIndex}`"
                 @click="setButton({ index: childIndex, text: childItem.text })"
-                :class="{'stages__active': activeButton == childIndex} "
+                :class="{'layout__active': activeButton == childIndex} "
             ) 
                 | {{childIndex + 1}} 
 
@@ -27,26 +27,26 @@ import { mapGetters, mapActions } from "vuex";
 export default {
     data() {
         return {
-            stages: require("@/assets/json/stages")            
+            layout: require("@/assets/json/layout")            
         };
     },
     computed: {
         ...mapGetters({
-            activeButton: "stages/activeButton",
-            activeMeter: "stages/activeMeter"
+            activeButton: "layout/activeButton",
+            activeMeter: "layout/activeMeter"
         })
     },
     methods: {
         ...mapActions({
-            setMeter: "stages/setMeter",
-            setButton: "stages/setButton"
+            setMeter: "layout/setMeter",
+            setButton: "layout/setButton"
         })
     }
 };
 </script>
 
 <style lang="scss">
-.stages {
+.layout {
     &__controller {
         display: flex;
         position: relative;
@@ -69,25 +69,24 @@ export default {
     &__button {
         flex: 1;
         cursor: pointer;             
-    }
-    &__meter, &__button {        
-        &:hover {
-            background: #fff;            
-            color: $maincol;
-        }
-    } 
+    }    
 }
 
 @media #{$desktop} {
-    .stages {
+    .layout {
         &__button {
             @include fonted(rem(24), rem(29));   
         }
+        &__meter, &__button {        
+            &:hover {
+                background: #61394C;                        
+            }
+        } 
     }
 }
 
 @media #{$mobile} {
-    .stages {         
+    .layout {         
         &__controller {
             margin-bottom: rem(60);
         }  

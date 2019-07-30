@@ -1,16 +1,16 @@
 <template lang="pug">
     
-.stages__view
-    .stages__scale.phen-700 Увеличить
-    .stages__title
-    .stages__content
+.layout__view
+    .layout__scale.phen-700 Увеличить
+    .layout__title
+    .layout__content
         img.mob(
-            :src='require(`@/assets/images/mobile/stages/img-${activeMeter + 1}-${activeButton + 1}.png`)'
+            :src='require(`@/assets/images/mobile/layout/img-${activeMeter + 1}-${activeButton + 1}.png`)'
             :class="{ 'mx-auto': !text }"
         )
         p(v-if="text") {{text}}
         img.desk(
-            :src='require(`@/assets/images/desktop/stages/img-${activeMeter + 1}-${activeButton + 1}.png`)'
+            :src='require(`@/assets/images/desktop/layout/img-${activeMeter + 1}-${activeButton + 1}.png`)'
             :class="{ 'mx-auto': !text }"
         )        
 
@@ -22,16 +22,16 @@ import { mapGetters } from "vuex";
 export default {
     computed: {
         ...mapGetters({
-            activeButton: "stages/activeButton",
-            activeMeter: "stages/activeMeter",
-            text: 'stages/text'
+            activeButton: "layout/activeButton",
+            activeMeter: "layout/activeMeter",
+            text: 'layout/text'
         })
     }
 }
 </script>
 
 <style lang="scss">
-.stages {
+.layout {
     &__view {
         margin-top: rem(30);
         width: 100%;        
@@ -59,7 +59,7 @@ export default {
 }
 
 @media #{$desktop} {
-    .stages {
+    .layout {
         &__content {
             padding: rem(50);
             display: flex; align-items: center;            
@@ -72,7 +72,7 @@ export default {
 }
 
 @media #{$mobile} {
-    .stages {
+    .layout {
         &__content {
             padding:rem(50) rem(30);
             p {

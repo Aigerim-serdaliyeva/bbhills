@@ -1,14 +1,14 @@
 const SET_BUTTON = "SET_BUTTON";
 const SET_METER = "SET_METER";
 const SET_TEXT = "SET_TEXT";
-import stages from "@/assets/json/stages"
+import layout from "@/assets/json/layout"
 
 export default {
     namespaced: true,
     state: {
         activeMeter: 0,
         activeButton: 0,
-        text: stages[0].quantity[0].text,        
+        text: layout[0].quantity[0].text,        
     },
     getters: {
         activeMeter: state => state.activeMeter,
@@ -23,7 +23,7 @@ export default {
         [SET_METER](state, payload) {
             state.activeMeter = payload;
             state.activeButton = 0;
-            state.text = stages[payload].quantity[0].text
+            state.text = layout[payload].quantity[0].text
         },
         [SET_TEXT] (state, payload) {
             state.text = payload

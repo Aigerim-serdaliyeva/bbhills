@@ -19,3 +19,8 @@
     font-size: $font;
     line-height: $lineHeight
 }
+
+@mixin pseudo() {
+    content: '';
+    position: absolute;
+}
