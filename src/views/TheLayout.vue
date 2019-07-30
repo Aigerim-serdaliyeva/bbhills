@@ -17,8 +17,9 @@ import layoutView from "@/components/TheLayoutView";
 
 export default {
     components: {
-        layoutController, layoutView
-    }, 
+        layoutController,
+        layoutView
+    }
 };
 </script>
 
@@ -37,7 +38,7 @@ export default {
     }
     &__active {
         background: #fff;
-        color: $maincol;        
+        color: $maincol;
     }
 }
 

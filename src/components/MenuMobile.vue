@@ -5,19 +5,34 @@ mixin mobileMenuContentWrap
         .mobile-menu__content-menu
             .mobile-menu__content-toggle(@click="MENU_TOGGLE") 
                 img(src="@/assets/images/mobile/menu-close.svg")        
-            .mobile-menu__content-logo(@click="goToIndex")
+            .mobile-menu__content-logo(@click="goTo('/')")
                 img(src="@/assets/images/global/header-logo.svg")
-            .mobile-menu__content-phone
+            .mobile-menu__content-phone(@click="goTo('/call')")
                 img(src="@/assets/images/mobile/menu-phone.svg")
     
     .mobile-menu__content-main.phen-400
         .mobile-menu__content-link(
-            v-for="item in menu"
+            v-for="(item, index) in menu"
             :key="item.id"            
             :class="{ 'mobile-menu__content-active': currentRoute === item.attr.to }"
         )
-            span
-            router-link(v-bind="item.attr" @click.native="MENU_TOGGLE") {{item.name}}
+            span            
+            router-link(                    
+                v-if="index === 0"
+                @click.native="goToScroll(item.attr.to, item.attr.scroll)"
+                to=""
+            ) {{item.name}}
+            router-link(                    
+                v-else-if="index === 1"
+                @click.native="goToScroll(item.attr.to, item.attr.scroll)"
+                to=""
+            ) {{item.name}}
+            router-link(                    
+                v-else-if="index === 5"
+                @click.native="goToScroll(item.attr.to, item.attr.scroll)"
+                to=""
+            ) {{item.name}}
+            router-link(v-else @click.native="MENU_TOGGLE" v-bind="item.attr") {{item.name}}
             span
 
 
@@ -25,9 +40,9 @@ mixin mobileMenuContentWrap
     .mobile-menu__wrap.main-container
         .mobile-menu__toggle(@click="MENU_TOGGLE")
             img(src="@/assets/images/mobile/menu-bar.svg")
-        .mobile-menu__logo(@click="goToIndex")
+        .mobile-menu__logo(@click="goTo('/')")
             img(src="@/assets/images/mobile/menu-logo.svg")
-        .mobile-menu__phone
+        .mobile-menu__phone(@click="goTo('/call')")
             img(src="@/assets/images/mobile/menu-phone.svg")
          
     .mobile-menu__content(
@@ -62,9 +77,16 @@ export default {
     },
     methods: {
         ...mapMutations(["MENU_TOGGLE"]),
-        goToIndex() {
-            this.$router.push("/");
+        goTo(path) {
+            this.$router.push(path);
             this.MENU_TOGGLE();
+        },
+        goToScroll(path, scrollTo) {
+            this.MENU_TOGGLE();
+            this.$router.push(path);
+            setTimeout(() => {
+                this.$scrollTo(scrollTo);
+            }, 100);
         }
     }
 };
@@ -72,6 +94,7 @@ export default {
 
 <style lang="scss">
 .mobile-menu {
+    transition: 0.3s ease-in-out;
     width: 100%;
     position: relative;
     background: $maincol;
@@ -96,7 +119,7 @@ export default {
     &__content-link {
         @include flex(center, center);
         & + .mobile-menu__content-link {
-            margin-top: rem(20);
+            margin-top: rem(30);
         }
         span {
             height: 2px;

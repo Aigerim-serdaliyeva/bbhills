@@ -2,20 +2,21 @@
     {
         "name" : "О BlackBerry Hills",        
         "attr": {
-            "to": "/about"
+            "to": "",
+            "scroll": "#home-about"
         }
     },
     {
         "name": "Преимущества",
         "attr": {
-            "to": "",
-            "v-scroll-to": ""
+            "to": "/",
+            "scroll": "#home-advantages"
         }
     },
     {
         "name": "Галерея",
         "attr": {
-            "to": "/galery"
+            "to": "/gallery"
         }
     },
     {
@@ -34,7 +35,7 @@
         "name": "Контакты",
         "attr": {
             "to": "",
-            "v-scroll-to": ""
+            "scroll": "#footer"
         }
     }
 ]

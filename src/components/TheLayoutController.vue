@@ -27,7 +27,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
     data() {
         return {
-            layout: require("@/assets/json/layout")            
+            layout: require("@/assets/json/layout")
         };
     },
     computed: {
@@ -52,48 +52,51 @@ export default {
         position: relative;
         article {
             flex: 1;
-            text-align: center;            
+            text-align: center;
             // & + article {
             //     border-left: 1px solid $maincol;
-            // }            
+            // }
         }
     }
     &__meter {
         @include fonted(rem(30), rem(36));
         padding: rem(4) 0;
-        cursor: pointer;             
-    }    
+        cursor: pointer;
+    }
     &__choose {
         display: flex;
     }
     &__button {
         flex: 1;
-        cursor: pointer;             
-    }    
+        cursor: pointer;
+    }
 }
 
 @media #{$desktop} {
     .layout {
         &__button {
-            @include fonted(rem(24), rem(29));   
+            @include fonted(rem(24), rem(29));
         }
-        &__meter, &__button {        
+        &__meter,
+        &__button {
             &:hover {
-                background: #61394C;                        
+                background: #61394c;
             }
-        } 
+        }
     }
 }
 
 @media #{$mobile} {
-    .layout {         
+    .layout {
         &__controller {
             margin-bottom: rem(60);
-        }  
+        }
         &__choose {
-            position: absolute; bottom: rem(-50); left: 0;
+            position: absolute;
+            bottom: rem(-50);
+            left: 0;
             width: 100%;
-        }   
+        }
         &__button {
             @include fonted(rem(30), rem(36));
         }

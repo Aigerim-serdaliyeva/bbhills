@@ -24,36 +24,38 @@ export default {
         ...mapGetters({
             activeButton: "layout/activeButton",
             activeMeter: "layout/activeMeter",
-            text: 'layout/text'
+            text: "layout/text"
         })
     }
-}
+};
 </script>
 
 <style lang="scss">
 .layout {
     &__view {
         margin-top: rem(30);
-        width: 100%;        
+        width: 100%;
         background: #fff;
         color: $maincol;
         position: relative;
     }
-    &__scale {                
+    &__scale {
         text-align: right;
-        position: absolute; top: 0; right: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
         padding: rem(10) rem(10) 0 0;
         text-transform: uppercase;
         font-size: rem(20);
         cursor: pointer;
-    }    
-    &__content {                
+    }
+    &__content {
         p {
             @include fonted(rem(24), rem(29));
             color: $maincol;
         }
         img {
-            display: block; 
+            display: block;
         }
     }
 }
@@ -62,7 +64,8 @@ export default {
     .layout {
         &__content {
             padding: rem(50);
-            display: flex; align-items: center;            
+            display: flex;
+            align-items: center;
             p {
                 width: rem(300);
                 margin-right: rem(140);
@@ -74,13 +77,11 @@ export default {
 @media #{$mobile} {
     .layout {
         &__content {
-            padding:rem(50) rem(30);
+            padding: rem(50) rem(30);
             p {
                 margin-top: rem(30);
-                
             }
         }
     }
 }
-
 </style>

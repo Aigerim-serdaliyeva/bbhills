@@ -5,8 +5,23 @@
         .menu-desktop__logo(@click="goToIndex")
             img(src="@/assets/images/global/header-logo.svg")
         ul.menu-desktop__nav.phen-400
-            li(v-for="item in menu" :key="item.id")
-                router-link(v-bind="item.attr") {{item.name}}
+            li(v-for="(item, index) in menu" :key="item.id")
+                router-link(                    
+                    v-if="index === 0"
+                    @click.native="goTo(item.attr.to, item.attr.scroll)"
+                    to=""
+                ) {{item.name}}
+                router-link(                    
+                    v-else-if="index === 1"
+                    @click.native="goTo(item.attr.to, item.attr.scroll)"
+                    to=""
+                ) {{item.name}}
+                router-link(                    
+                    v-else-if="index === 5"
+                    @click.native="goTo(item.attr.to, item.attr.scroll)"
+                    to=""
+                ) {{item.name}}
+                router-link(v-else v-bind="item.attr") {{item.name}}
                         
 </template>
 
@@ -20,6 +35,15 @@ export default {
     methods: {
         goToIndex() {
             this.$router.push("/");
+            setTimeout(() => {
+                this.$scrollTo("#home");
+            }, 100);
+        },
+        goTo(path, scrollTo) {
+            this.$router.push(path);
+            setTimeout(() => {
+                this.$scrollTo(scrollTo);
+            }, 100);
         }
     }
 };

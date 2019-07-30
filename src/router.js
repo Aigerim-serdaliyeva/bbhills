@@ -10,12 +10,12 @@ const router = new Router({
         {
             path: "/",
             name: "home",
-            component: () => import("./views/TheHome.vue")
+            component: () => import("./views/TheHome")
         },
         {
-            path: "/galery",
-            name: "galery",
-            component: () => import("./views/TheGalery.vue")
+            path: "/gallery",
+            name: "gallery",
+            component: () => import("./views/TheGalery")
         },
         {
             path: "/layout",
@@ -26,6 +26,11 @@ const router = new Router({
             path: "/stages",
             name: "stages",
             component: () => import("./views/TheStages")
+        },
+        {
+            path: "/call",
+            name: "call",
+            component: () => import("./views/TheCallback")
         }
     ]
 });

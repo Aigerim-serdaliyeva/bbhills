@@ -2,10 +2,14 @@
 
 .nav#nav
     menu-mobile.mob
+    menu-mobile.mob.menu-desktop__sticky(
+        :class="{ 'menu-desktop__hidden': !menu_state }"
+    )
     menu-desktop.desk
     menu-desktop.desk.menu-desktop__sticky(
         :class="{ 'menu-desktop__hidden': !menu_state }"
     )
+    
 
 </template>
 

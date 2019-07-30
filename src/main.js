@@ -10,7 +10,7 @@ import camelCase from "lodash/camelCase";
 // Fontawesome
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons"
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 import "slick-carousel/slick/slick.css";

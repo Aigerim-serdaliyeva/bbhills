@@ -6,6 +6,7 @@ const headerFixed = {
     },
     destroyed() {
         this.$ksvuescr.$emit("destroy");
+        this.MENU_TOGGLE();
     },
     methods: {
         sticky() {

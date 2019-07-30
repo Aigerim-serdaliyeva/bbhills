@@ -22,8 +22,10 @@ import townhouse from "@/components/TheHomeTownhouse.vue";
 import advantages from "@/components/TheHomeAdvantages.vue";
 import presentation from "@/components/HomePresentation.vue";
 import order from "@/components/TheHomeOrder.vue";
+import headerFixed from "@/mixins/headerFixed";
 
 export default {
+    mixins: [headerFixed],
     data() {
         return {
             presentation: require("@/assets/json/presentation")
