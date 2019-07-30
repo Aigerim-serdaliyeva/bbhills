@@ -1,7 +1,7 @@
 <template lang="pug">
     
 .stages
-    .stages__wrap.main-container
+    .stages__wrap.desk-container
         .stages__title.phen-400 Ход строительства
         .stages__slider
             img(
@@ -9,7 +9,7 @@
                 :key="`build-${index}`"
                 :src='require(`@/assets/images/desktop/stages/build_${index + 1}.jpg`)'
             )
-        .stages__info
+        .stages__info.mob-container
             .stages__arrows 
             .stages__date     
                 .stages__caption(
@@ -40,7 +40,7 @@ export default {
         return {
             date: require('@/assets/json/stages-date.json')
         }
-    },
+    },    
     mounted() {
         $('.stages__slider').slick({
             infinite: true,
@@ -60,13 +60,22 @@ export default {
             nextArrow: `<button class="stages__arrow stages__arrow-left">
                             <img src="static/stages-arrow-right.svg">
                         </button>
-            `
+            `,
+            responsive: [
+                {
+                    breakpoint: 960,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }
+            ]
         })
 
         $('.stages__date').slick({
             infinite: true,
             arrows:false,
             draggable: false,
+            touchMove: false
         })
 
         $('.stages__slider').on('beforeChange', (event, slick, currentSlide, nextSlide) => {
@@ -84,6 +93,7 @@ export default {
     &__title {
         text-transform: uppercase;
         margin: rem(50) 0;
+        font-size: rem(36);
     }            
     &__arrows {
         width: 100%;
@@ -168,8 +178,7 @@ export default {
             .slick-slide:not(.slick-active) { 
                 margin: 60px 0; 
             }           
-        }
-             
+        }             
         &__holder {
             width: rem(50);            
         }        
@@ -190,6 +199,41 @@ export default {
             }
         }
                 
+    }
+}
+
+@media #{$mobile} {
+    .stages {
+        img {
+            display: block;
+        }
+        &__arrows {
+            margin-top: rem(20);
+        }
+        &__arrow {
+            img {
+                @include sized(rem(50), rem(50))
+            }
+        }
+        &__holder {
+            width: rem(50);
+        }
+        &__info {            
+            .slick-current {
+                .stages__holder {
+                    width: 70%;
+                }
+                .stages__vertical-line {
+                    height: rem(60);
+                }
+                .stages__filtered-line::before {                    
+                    opacity: 1;
+                }
+                .stages__time::before {
+                    opacity: 1;
+                }
+            }
+        }        
     }
 }
 
