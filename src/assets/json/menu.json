@@ -2,7 +2,7 @@
     {
         "name" : "О BlackBerry Hills",        
         "attr": {
-            "to": "",
+            "to": "/",
             "scroll": "#home-about"
         }
     },

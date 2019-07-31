@@ -9,11 +9,11 @@
             h3 Ваше имя
             input(type="text" v-model="name" required) 
             h3 Ваш телефон
-            input(type="text" v-model="phone" required) 
+            input(type="tel" v-model="phone" required) 
             h3 E-mail
-            input(type="text" v-model="email")
+            input(type="email" placeholder="example@mail.kz" v-model="email")
             h3 Удобное время для звонка
-            input(type="text" v-model="time")
+            input(type="time" v-model="time")
             button.phen-400(type="submit") {{buttonText}}
 
 </template>

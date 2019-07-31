@@ -10,8 +10,7 @@
                     class='gallery__slider-item'
                     v-for="(item, index) in 4"
                     :key="`gallery-${index}`"
-                    :src="require(`@/assets/images/desktop/gallery/main-${index + 1}.jpg`)"
-                    @click="setBackground(index + 1)"
+                    :src="require(`@/assets/images/desktop/gallery/gal_${index + 1}.png`)"                    
                 )
 
 </template>
@@ -29,9 +28,9 @@ export default {
     },
     computed: {
         background() {
-            return require(`@/assets/images/desktop/gallery/main-big-${
+            return require(`@/assets/images/desktop/gallery/gal_${
                 this.backgroundIndex
-            }.jpg`);
+            }.png`);
         }
     },
     mounted() {
@@ -42,6 +41,8 @@ export default {
             slidesToShow: 3,
             slidesToScroll: 1,
             draggable: false,
+            centerMode: true,
+            centerPadding: '0px',
             prevArrow: `<button class="gallery__arrow gallery__arrow-left">
                             
                         </button>
@@ -116,7 +117,7 @@ export default {
     .gallery {
         &__wrap {
             margin: auto;
-            @include sized(100vh, 100%);
+            @include sized(95vh, 100%);
         }
         &__content {
             width: rem(700);

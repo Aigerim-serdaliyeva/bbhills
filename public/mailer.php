@@ -13,29 +13,29 @@ try {
     $mail->isSMTP();                                            // Set mailer to use SMTP
     $mail->Host       = 'smtp.yandex.ru';  // Specify main and backup SMTP servers
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-    $mail->Username   = 'no-reply@muratov.kz';                     // SMTP username
-    $mail->Password   = 'rtyfgh123!';                               // SMTP password
+    $mail->Username   = 'info@bbhills.kz';                     // SMTP username
+    $mail->Password   = 'New23Estate04!(';                               // SMTP password
     $mail->SMTPSecure = 'ssl';                                  // Enable TLS encryption, `ssl` also accepted
     $mail->Port       = 465;      
     $mail->CharSet 	= 'utf-8';                              // TCP port to connect to
 
     //Recipients
-    $mail->setFrom('no-reply@muratov.kz', 'Muratov');    
-    $mail->addAddress('callcentre@muratov.kz', 'Info');                 
-    $mail->addCC("info@muratov.kz");                 
-    $mail->addCC("sanch941@gmail.com");                                                 
+    $mail->setFrom('info@bbhills.kz', 'Blackberry Hills');        
+    $mail->addAddress("sanch941@gmail.com");    
+    // $mail->addAddress("callcentre@muratov.kz");    
+	// $mail->addCC("a.bektas@newestate.kz");
+	// $mail->addCC("z.bertoleuova@newestate.kz");
+	// $mail->addCC("a.zhadraeva@newestate.kz");                                                 
     $_POST = json_decode(file_get_contents('php://input'), true);   
-    $company_name = $_POST["companyName"];
-    $client_name = $_POST["clientName"];
-    $client_surname = $_POST["clientSurname"];
-    $client_patronymic = $_POST["clientPatronymic"];
-    $client_phone = $_POST["clientPhone"];
-    $client_email = $_POST["clientEmail"];
+    $name = $_POST["name"];
+    $phone = $_POST["phone"];
+    $email = $_POST["email"];
+    $time = $_POST["time"];
 
     // Content
     $mail->isHTML(true);        
-    $mail->Subject = "Заявка - muratov.kz";                              
-    $mail->Body	= "<p> Наименование компании - $company_name </p> <br> <p>Имя клиента - $client_name</p> <br> <p>Фамилия клиента - $client_surname</p> <br> <p>Отчество клиента - $client_patronymic</p> <br> </p> <p>Мобильный номер клиента - $client_phone</p> <br> <p>Email клиента - $client_email</p> <br>";
+    $mail->Subject = "Заказали звонок";                              
+    $mail->Body	= "Имя - $name, Телефон - $phone, Почта - $email, Время - $time";
 
     $mail->send();
     echo 'Message has been sent';
