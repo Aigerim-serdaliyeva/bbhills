@@ -5,7 +5,7 @@
         .stages__title.phen-400 Ход строительства
         .stages__slider
             img(
-                v-for="(item, index) in 21"
+                v-for="(item, index) in date"
                 :key="`build-${index}`"
                 :src='require(`@/assets/images/desktop/stages/build_${index + 1}.jpg`)'
             )
@@ -31,9 +31,9 @@
 </template>
 
 <script>
-import $ from "jquery";
-window.Jquery = $;
-import slick from "slick-carousel";
+var $ = require("jquery");
+window.jQuery = $;
+var slick = require("slick-carousel");
 
 export default {
     data() {
@@ -42,14 +42,13 @@ export default {
         };
     },
     mounted() {
-        $(".stages__slider").slick({
-            infinite: true,
+        $(".stages__slider").slick({                        
             slidesToShow: 3,
             slidesToScroll: 1,
             centerMode: true,
             draggable: false,
-            centerPadding: "0px",
-            focusOnSelect: true,
+            asNavFor: '.stages__date',
+            centerPadding: "0px",            
             appendArrows: $(".stages__arrows"),
             prevArrow: `<button class="stages__arrow stages__arrow-left">
                             <img src="static/stages-arrow-left.svg">
@@ -69,19 +68,13 @@ export default {
             ]
         });
 
-        $(".stages__date").slick({
-            infinite: true,
+        $(".stages__date").slick({                 
             arrows: false,
-            draggable: false,
-            touchMove: false
+            slidesToShow: 1,
+            slidesToScroll: 1,            
         });
 
-        $(".stages__slider").on(
-            "beforeChange",
-            (event, slick, currentSlide, nextSlide) => {
-                $(".stages__date").slick("slickGoTo", nextSlide);
-            }
-        );
+        
     }
 };
 </script>

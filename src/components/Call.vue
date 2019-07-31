@@ -5,15 +5,19 @@
         .call__circle
             img(src="@/assets/images/global/call-circle-bg.png")
         h2.phen-700 Оставьте заявку и я свяжусь с вами, в удобное для вас время!
-        form.phen-400(@submit.prevent="submit")
-            h3 Ваше имя
-            input(type="text" v-model="name" required) 
-            h3 Ваш телефон
-            input(type="tel" v-model="phone" required) 
-            h3 E-mail
-            input(type="email" placeholder="example@mail.kz" v-model="email")
-            h3 Удобное время для звонка
-            input(type="time" v-model="time")
+        form.phen-400(
+            @submit.prevent="submit"            
+        )       
+            transition(name="fade")      
+                div(v-if="!success")
+                    h3 Ваше имя
+                    input(type="text" v-model="name" required) 
+                    h3 Ваш телефон
+                    input(type="tel" v-model="phone" required) 
+                    h3 E-mail
+                    input(type="email" placeholder="example@mail.kz" v-model="email")
+                    h3 Удобное время для звонка
+                    input(type="time" v-model="time")
             button.phen-400(type="submit") {{buttonText}}
 
 </template>
@@ -29,6 +33,7 @@ export default {
             email: "",
             time: "",
             buttonText: "Отправить",
+            success: false,
             publicPath: process.env.BASE_URL
         };
     },
@@ -42,8 +47,9 @@ export default {
                 time: this.time
             };
 
-            axios.post(`${this.publicPath}/mailer.php`, data).then(() => {
+            axios.post(`mailer.php`, data).then(() => {
                 this.buttonText = "Заявка отправлена";
+                this.success = true
             });
         }
     }
@@ -51,6 +57,16 @@ export default {
 </script>
 
 <style lang="scss">
+.form-hidden {
+    h3, input {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    button {
+        pointer-events: none;
+    }
+}
 .call {
     display: inline-block;
     padding: rem(9.8);
@@ -82,6 +98,7 @@ export default {
         padding: rem(5) rem(10);
         text-align: center;
         font-size: rem(18);
+        transition: opacity 0.2s;
         &:not(:last-of-type) {
             margin: rem(4) 0 rem(8);
         }
@@ -94,6 +111,7 @@ export default {
     }
     h3 {
         font-size: rem(18);
+        transition: opacity 0.2s;
     }
     button {
         margin-top: rem(15);

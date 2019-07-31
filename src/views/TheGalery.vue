@@ -6,19 +6,28 @@
     .gallery__wrap
         .gallery__content
             .gallery__slider
+                //- a(
+                //-     v-for="(item, index) in 31"
+                //-     :key="`gallery-${index}`"                 
+                //-     :href="`static/gal_${index + 1}.png`"
+                //-     data-fancybox=`gallery-fancy`                       
+                //- )
                 img(
-                    class='gallery__slider-item'
-                    v-for="(item, index) in 4"
+                    v-for="(item, index) in 31"
                     :key="`gallery-${index}`"
+                    class='gallery__slider-item'                        
                     :src="require(`@/assets/images/desktop/gallery/gal_${index + 1}.png`)"                    
-                )
+                )                
 
 </template>
 
 <script>
-import $ from "jquery";
-window.Jquery = $;
-import slick from "slick-carousel";
+var $ = require("jquery");
+window.jQuery = $;
+var slick = require("slick-carousel");
+// eslint-disable-next-line
+// var fancybox = require("@fancyapps/fancybox");
+// import "@fancyapps/fancybox/dist/jquery.fancybox.min.css";
 
 export default {
     data() {
@@ -40,9 +49,9 @@ export default {
             infinite: true,
             slidesToShow: 3,
             slidesToScroll: 1,
-            draggable: false,
+            draggable: false,             
             centerMode: true,
-            centerPadding: '0px',
+            centerPadding: '0px',           
             prevArrow: `<button class="gallery__arrow gallery__arrow-left">
                             
                         </button>
@@ -67,6 +76,18 @@ export default {
                 self.backgroundIndex = nextSlide + 1;
             }
         );
+
+        // $(`[data-fancybox="gallery-fancy"]`).fancybox({
+        //         hash: false,
+        //         loop: true,
+        //         thumbs: {
+        //             autoStart: true // Display thumbnails on opening
+        //         },               
+        //         afterClose(instance, current) {                    
+        //             let index = current.src.replace('static/gal_', '').replace('.png', '')
+        //             self.backgroundIndex = index;                    
+        //         } 
+        // });        
     },
     methods: {
         setBackground(index) {
@@ -84,9 +105,11 @@ export default {
             @include sized(rem(50), rem(50));
         }
     }
+    &__wrap {
+        position: relative;
+    }
     &__content {
-        position: absolute;
-        bottom: 0;
+        position: absolute;        
         left: 0;
         right: 0;
         margin: auto;
@@ -117,10 +140,11 @@ export default {
     .gallery {
         &__wrap {
             margin: auto;
-            @include sized(95vh, 100%);
+            @include sized(95vh, 100%);            
         }
         &__content {
             width: rem(700);
+            bottom: rem(50);
         }
         &__arrow {
             &::before {
@@ -169,9 +193,10 @@ export default {
 
 @media #{$mobile} {
     .gallery {
-        margin-bottom: rem(300);
+        margin-bottom: rem(250);
         &__content {
-            width: 70%;
+            width: 70%;  
+            top: 105%;          
         }
         &__wrap {
             height: rem(500);

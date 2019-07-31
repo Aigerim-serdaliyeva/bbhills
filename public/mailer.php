@@ -20,12 +20,12 @@ try {
     $mail->CharSet 	= 'utf-8';                              // TCP port to connect to
 
     //Recipients
-    $mail->setFrom('info@bbhills.kz', 'Blackberry Hills');        
-    $mail->addAddress("sanch941@gmail.com");    
-    // $mail->addAddress("callcentre@muratov.kz");    
-	// $mail->addCC("a.bektas@newestate.kz");
-	// $mail->addCC("z.bertoleuova@newestate.kz");
-	// $mail->addCC("a.zhadraeva@newestate.kz");                                                 
+    $mail->setFrom('info@bbhills.kz', 'Blackberry Hills');              
+    $mail->addAddress("callcentre@muratov.kz");    
+    $mail->addCC("sanch941@gmail.com");  
+	$mail->addCC("a.bektas@newestate.kz");
+	$mail->addCC("z.bertoleuova@newestate.kz");
+	$mail->addCC("a.zhadraeva@newestate.kz");                                                 
     $_POST = json_decode(file_get_contents('php://input'), true);   
     $name = $_POST["name"];
     $phone = $_POST["phone"];

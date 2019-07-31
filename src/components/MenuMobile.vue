@@ -14,7 +14,7 @@ mixin mobileMenuContentWrap
         .mobile-menu__content-link(
             v-for="(item, index) in menu"
             :key="item.id"            
-            :class="{ 'mobile-menu__content-active': currentRoute === item.attr.to }"
+            
         )
             span            
             router-link(                    
